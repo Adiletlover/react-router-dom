@@ -1,8 +1,7 @@
-import Header from '../Components/Header/Header';
+
 const Home = () => {
   return (
     <>
-      <Header />
       <section class="zero"></section>
       <div class="news">
         <h1>News</h1>

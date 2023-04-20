@@ -1,22 +1,29 @@
-import Header from "../Components/Header/Header";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './styles.css';
 
 const Users = () => {
+  const navigate = useNavigate()
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
   return (
-    <>
-    <Header/>
-      <section class="hero"></section>
-      <div class="news">
-        <h1>News</h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita ratione aut sapiente
-          omnis aspernatur incidunt at ipsum accusantium. Modi sint maxime neque temporibus beatae
-          quibusdam, consequatur molestiae mollitia magnam pariatur? Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Libero dolores nesciunt alias fuga laudantium corporis,
-          facere explicabo eum beatae, eligendi incidunt id repellendus sint soluta deserunt debitis
-          aliquid delectus deleniti.
-        </p>
-      </div>
-    </>
+    <div className="users">
+      {users &&
+        users.map((el) => {
+          return (
+            <div className="user" key={el.id}>
+              <span>
+                {el.name} ({el.username})
+               </span>
+              <button onClick={()=> navigate(`/users/${el.id}`)}>More...</button>
+            </div>
+          );
+        })}
+    </div>
   );
 };
 

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import Header from '../Components/Header/Header';
+
 export const imgMap = [
   {
-    path: '/home',
+    path: '/',
     imgLink: 'images/img1.png',
     alt: "banner",
     id: '1',
@@ -24,7 +24,6 @@ export const imgMap = [
 const Main = () => {
   return (
     <div>
-      <Header />
       <div className="server">
         {imgMap.map(({ id, path, imgLink, alt }) => {
           return (
