@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const routes = [
   {
@@ -19,26 +19,26 @@ const routes = [
 ];
 
 const Header = () => {
-  const location = useLocation()
-  const navigation = useNavigate()
-  const onBackHandler = () => {
-    navigation(location.state?.from )
-  }
+  const location = useLocation();
+  const navigation = useNavigate();
   return (
     <header>
       <div className="dec">
         <h1>Here is logo</h1>
-        {
-          routes.map(({path, label, id}) => {
-            return (
-              <Link state={{from: location.pathname}} to={path} key={id}>
-                {label}
-              </Link>
-            )
-          })
-        }
+        {routes.map(({ path, label, id }) => {
+          return (
+            <Link state={{ from: location.pathname }} to={path} key={id}>
+              {label}
+            </Link>
+          );
+        })}
       </div>
-      <button onClick={onBackHandler}>Back</button>
+      <button
+        onClick={() => {
+          navigation(location.state?.from);
+        }}>
+        Back
+      </button>
     </header>
   );
 };

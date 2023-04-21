@@ -22,3 +22,12 @@
     margin-top: 40px;
     margin-bottom: 40px;
 }
+
+.postDet {
+    border: 8px solid #283232;
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+    font-size:30px;
+  }
+  
