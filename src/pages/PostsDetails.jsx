@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import BackToButton from './BackToButton';
 
 const PostsDetails = () => {
   const { id } = useParams();
@@ -13,6 +14,7 @@ const PostsDetails = () => {
 
   return (
     <div className="postDet">
+      <BackToButton/>
       <h1>{post.id}</h1>
       <h2>{post.title}</h2>
       <br />

@@ -33,12 +33,6 @@ const Header = () => {
           );
         })}
       </div>
-      <button
-        onClick={() => {
-          navigation(location.state?.from);
-        }}>
-        Back
-      </button>
     </header>
   );
 };
